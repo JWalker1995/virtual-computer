@@ -1,0 +1,16 @@
+cccccrrrrrrrrbbb
+
+Start mem - 16
+Bytes - 3
+Read or write - 1
+Data to write (max 8 bytes) - 64
+Return value - ?
+
+Pop top mem location in queue
+If (bbb + Bytes) overflows, then (we need to access multiple cells)
+	Bytes2 = 1000 - bbb
+	Read or write Bytes2 bytes to start mem
+	Bytes2 = Bytes - Bytes2
+	Read or write Bytes2 bytes to ccccc(rrrrrrrr + 1)000
+else
+	Simple write
