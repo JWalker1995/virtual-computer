@@ -14,3 +14,17 @@ If (bbb + Bytes) overflows, then (we need to access multiple cells)
 	Read or write Bytes2 bytes to ccccc(rrrrrrrr + 1)000
 else
 	Simple write
+
+
+Simple, single-process computer.
+Virtual memory template can be loaded. Templates are something like this: [add][divider][add][divider][callback]
+Call stack, something like this:
+	[Exit][OS][Process][Caller]^[Func]
+	Each command, [Func] is incremented:
+	[Exit][OS][Process][Caller]^[Func + 1]
+	
+	If Func reaches end of loaded memory:
+		Load next 8 bytes after Func
+	If return is called:
+		Control is returned to caller:
+		[Exit][OS][Process]^[Caller][Func] ([Func will never be accessed again, probably overwritten soon.])
