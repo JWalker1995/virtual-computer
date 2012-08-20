@@ -1,6 +1,8 @@
-color=0  48  48  48     dark gray
-color=1   0 128 255     light blue
-color=2   0 128 255     light-blue
+color=0  47  47  47     dark gray
+color=1   0 127 255     light blue
+color=2   0 127 255     light blue
 color=3 255 255 255     white
-color=4 255 148   0     orange
-color=5 207  16  32     lava red
+color=4 255 147   0     orange
+color=5 207  15  31     lava red
+color=6 207 128 255     light purple
+color=7 207   0 207     dark purple
