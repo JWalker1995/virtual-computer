@@ -28,3 +28,6 @@ Call stack, something like this:
 	If return is called:
 		Control is returned to caller:
 		[Exit][OS][Process]^[Caller][Func] ([Func will never be accessed again, probably overwritten soon.])
+
+
+Each block is 8x16 bits. Blocks are arranged into cores 8x16. The memory is split into 4 cores, for parallel access.
