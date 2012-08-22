@@ -30,4 +30,33 @@ Call stack, something like this:
 		[Exit][OS][Process]^[Caller][Func] ([Func will never be accessed again, probably overwritten soon.])
 
 
-Each block is 8x16 bits. Blocks are arranged into cores 8x16. The memory is split into 4 cores, for parallel access.
+Each block is 8x16 bits (8x2 bytes). Blocks are arranged into cores 32x32. The memory is split into 4 cores, for parallel access.
+
+ccjijijijijixxxy.bbb
+c=core
+i=block col
+j=block row
+x=inter-block col
+y=inter-block row
+b=bit
+
+ccyxyxyxyxyxxxxy.yyy
+c=core
+x=col
+y=row
+
+
+
+2 bits for addressing the core
+8 bits for addressing the col
+9 bits for addressing the row (one of these bits is sent as a delay, not in the parallel address with the others)
+
+
+Reading:
+	2 particles will be sent on the appropriate column, the first one to read, and the second one to xor the bits back to their original state.
+	4 particles will be sent to the top row of the memory block, the first two to start the read loop, and when reading is finished, the last 2 will stop the read loop.
+	2 particles will be sent to a row above the read block, to stop the first 2 particles from sending unused data.
+
+Writing:
+	First, the bytes to write to will be read, and xored with the write data, which will give the bytes that need to be flipped.
+	
