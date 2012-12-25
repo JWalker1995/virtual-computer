@@ -60,7 +60,6 @@ Write sequence:
 Input command, address, and data.
 Compute data delta foreach bit. 10011101 > 11010011
 Foreach bit of data delta, send address to flip.
-Foreach address sent, convert to physical address and continue.
 
 Negative means delay
 Positive means advance
@@ -101,10 +100,10 @@ d = -4
 e = -4
 f = -13
 
-
+Inter-core addressing:
 2 bits for addressing the core
 8 bits for addressing the col
-9 bits for addressing the row (one of these bits is sent as a delay, not in the parallel address with the others)
+9 bits for addressing the row (one of these bits is sent as a delay, not in the parallel address with the others. Also, only 6 bits for addressing bytes.)
 
 
 Reading:

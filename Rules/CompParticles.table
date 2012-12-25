@@ -11,28 +11,29 @@
 # 5=Turn
 # 6=Flip Flop Turn On
 # 7=Flip Flop Turn Off
+# 8=No Turn Pass Block
 
-n_states:8
+n_states:9
 neighborhood:Moore
 symmetries:rotate4reflect
 
 # All
-var a={0,1,2,3,4,5,6,7}
-var b={0,1,2,3,4,5,6,7}
-var c={0,1,2,3,4,5,6,7}
-var d={0,1,2,3,4,5,6,7}
-var e={0,1,2,3,4,5,6,7}
-var f={0,1,2,3,4,5,6,7}
-var g={0,1,2,3,4,5,6,7}
-var h={0,1,2,3,4,5,6,7}
+var a={0,1,2,3,4,5,6,7,8}
+var b={0,1,2,3,4,5,6,7,8}
+var c={0,1,2,3,4,5,6,7,8}
+var d={0,1,2,3,4,5,6,7,8}
+var e={0,1,2,3,4,5,6,7,8}
+var f={0,1,2,3,4,5,6,7,8}
+var g={0,1,2,3,4,5,6,7,8}
+var h={0,1,2,3,4,5,6,7,8}
 
 # All except tail
-var i={0,1,2,4,5,6,7}
-var j={0,1,2,4,5,6,7}
+var i={0,1,2,4,5,6,7,8}
+var j={0,1,2,4,5,6,7,8}
 
 # All except heads
-var m={0,3,4,5,6,7}
-var n={0,3,4,5,6,7}
+var m={0,3,4,5,6,7,8}
+var n={0,3,4,5,6,7,8}
 
 # Heads
 var o={1,2}
@@ -44,13 +45,16 @@ var q={5,7}
 # Flip Flops
 var r={6,7}
 
+# All except heads and no turn pass block
+var s={0,3,4,5,6,7}
+
 # Move Electrons
 0,o,i,m,a,b,c,n,j,1
 o,a,b,c,d,e,f,g,h,3
 3,a,b,c,d,e,f,g,h,0
 
 # Turn Electrons
-0,q,a,b,c,m,d,o,3,1
+0,q,a,b,c,s,d,o,3,1
 
 # Flip Flop Turn
 r,3,o,0,p,3,f,g,h,r
