@@ -5,13 +5,13 @@
 # 
 # 0=Ground
 # 1=Electron Head
-# 2=Electron Head
+# 2=No Turn Electron Head
 # 3=Electron Tail
 # 4=Block
 # 5=Turn
 # 6=Flip Flop Turn On
 # 7=Flip Flop Turn Off
-# 8=No Turn Pass Block
+# 8=No Turn Block
 
 n_states:9
 neighborhood:Moore
@@ -45,8 +45,8 @@ var q={5,7}
 # Flip Flops
 var r={6,7}
 
-# All except heads and no turn pass block
-var s={0,3,4,5,6,7}
+# No Turn Block
+0,o,i,m,8,b,8,n,j,2
 
 # Move Electrons
 0,o,i,m,a,b,c,n,j,1
@@ -54,14 +54,14 @@ o,a,b,c,d,e,f,g,h,3
 3,a,b,c,d,e,f,g,h,0
 
 # Turn Electrons
-0,q,a,b,c,s,d,o,3,1
+0,q,a,b,c,m,d,1,3,1
 
 # Flip Flop Turn
-r,3,o,0,p,3,f,g,h,r
+r,3,1,0,1,3,f,g,h,r
 
-r,3,o,0,d,3,p,0,h,r
+r,3,1,0,d,3,1,0,h,r
 
-r,3,o,0,d,0,p,3,h,r
+r,3,1,0,d,0,1,3,h,r
 
-6,3,o,0,d,e,f,g,h,7
-7,3,o,0,d,e,f,g,h,6
+6,3,1,0,d,e,f,g,h,7
+7,3,1,0,d,e,f,g,h,6
