@@ -47,7 +47,6 @@ var r={6,7}
 
 # All except heads and no turn pass block
 var s={0,3,4,5,6,7}
-var t={0,3,4,5,6,7}
 
 # Move Electrons
 0,o,i,m,a,b,c,n,j,1
@@ -55,7 +54,7 @@ o,a,b,c,d,e,f,g,h,3
 3,a,b,c,d,e,f,g,h,0
 
 # Turn Electrons
-0,q,a,b,s,t,d,o,3,1
+0,q,a,b,c,s,d,o,3,1
 
 # Flip Flop Turn
 r,3,o,0,p,3,f,g,h,r

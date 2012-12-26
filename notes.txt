@@ -56,6 +56,10 @@ ccyxyxyxyxyxxxxy > ccyyyyyyxxxxxxxx
 
 This conversion must be the last step before accessing the memory.
 
+Read sequence:
+Input address as d, number of bytes to read as n.
+Send address1 n * 8 times.
+
 Write sequence:
 Input command, address, and data.
 Compute data delta foreach bit. 10011101 > 11010011
@@ -103,8 +107,13 @@ f = -13
 Inter-core addressing:
 2 bits for addressing the core
 8 bits for addressing the col
-9 bits for addressing the row (one of these bits is sent as a delay, not in the parallel address with the others. Also, only 6 bits for addressing bytes.)
+9 bits for addressing the row (one of these bits is sent as a delay, not in the parallel address with the others)
 
+CPU-visible addressing:
+2 bits for addressing the core
+8 bits for addressing the col
+6 bits for addressing the row (Cannot address individual bits)
+Total 16-bit address
 
 Reading:
 	2 particles will be sent on the appropriate column, the first one to read, and the second one to xor the bits back to their original state.
