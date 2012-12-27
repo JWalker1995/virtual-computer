@@ -104,7 +104,7 @@ d = -4
 e = -4
 f = -13
 
-Inter-core addressing:
+Inter-memory addressing:
 2 bits for addressing the core
 8 bits for addressing the col
 9 bits for addressing the row (one of these bits is sent as a delay, not in the parallel address with the others)
