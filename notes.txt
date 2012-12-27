@@ -116,6 +116,15 @@ CPU-visible addressing:
 Total 16-bit address
 
 Reading:
+get_shutoff_col(00000000 = 0) = 00001000 = 8
+get_shutoff_col(00000111 = 7) = 00001000 = 8
+get_shutoff_col(00001000 = 8) = 00010000 = 16
+get_shutoff_col(00001001 = 9) = 00010000 = 16
+get_shutoff_col(x) = ((first 5 bits of x) + 1) concat 000
+
+969675
+
+Reading:
 	2 particles will be sent on the appropriate column, the first one to read, and the second one to xor the bits back to their original state.
 	4 particles will be sent to the top row of the memory block, the first two to start the read loop, and when reading is finished, the last 2 will stop the read loop.
 	2 particles will be sent to a row above the read block, to stop the first 2 particles from sending unused data.
